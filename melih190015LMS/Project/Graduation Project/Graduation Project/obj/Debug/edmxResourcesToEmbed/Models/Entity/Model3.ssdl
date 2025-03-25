@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBLMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TBLAUTHOR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="30" />
+    <Property Name="SURNAME" Type="varchar" MaxLength="30" />
+    <Property Name="DETAILS" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="TBLBOOK">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="50" />
+    <Property Name="CATEGORY" Type="tinyint" />
+    <Property Name="AUTHOR" Type="int" />
+    <Property Name="PRINTEDYEAR" Type="char" MaxLength="4" />
+    <Property Name="PUBLISHER" Type="varchar" MaxLength="50" />
+    <Property Name="PAGE" Type="varchar" MaxLength="4" />
+    <Property Name="SITUATION" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'DBLMS.dbo.TBLCASH' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="TBLCASH">
+          <Property Name="ID" Type="int" />
+          <Property Name="MONTH" Type="varchar" MaxLength="20" />
+          <Property Name="AMOUNT" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>-->
+  <EntityType Name="TBLCATEGORY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="TBLMOVEMENT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BOOK" Type="int" />
+    <Property Name="USERS" Type="int" />
+    <Property Name="STAFF" Type="int" />
+    <Property Name="PURCHASEDATE" Type="smalldatetime" />
+    <Property Name="RETURNDATE" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="TBLPENALTY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USERS" Type="int" />
+    <Property Name="SITUATION" Type="int" />
+    <Property Name="START" Type="smalldatetime" />
+    <Property Name="FINISH" Type="smalldatetime" />
+    <Property Name="MONEY" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="TBLSTAFF">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="STAFF" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TBLUSERS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="20" />
+    <Property Name="SURNAME" Type="varchar" MaxLength="20" />
+    <Property Name="MAIL" Type="varchar" MaxLength="50" />
+    <Property Name="USERNAME" Type="varchar" MaxLength="20" />
+    <Property Name="PASSWORD" Type="varchar" MaxLength="20" />
+    <Property Name="PHOTO" Type="varchar" MaxLength="250" />
+    <Property Name="PHONE" Type="varchar" MaxLength="20" />
+    <Property Name="SCHOOL" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK_TBLBOOK_TBLAUTHOR">
+    <End Role="TBLAUTHOR" Type="Self.TBLAUTHOR" Multiplicity="0..1" />
+    <End Role="TBLBOOK" Type="Self.TBLBOOK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLAUTHOR">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBLBOOK">
+        <PropertyRef Name="AUTHOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLBOOK_TBLCATEGORY">
+    <End Role="TBLCATEGORY" Type="Self.TBLCATEGORY" Multiplicity="0..1" />
+    <End Role="TBLBOOK" Type="Self.TBLBOOK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLCATEGORY">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBLBOOK">
+        <PropertyRef Name="CATEGORY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLMOVEMENT_TBLBOOK">
+    <End Role="TBLBOOK" Type="Self.TBLBOOK" Multiplicity="0..1" />
+    <End Role="TBLMOVEMENT" Type="Self.TBLMOVEMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLBOOK">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBLMOVEMENT">
+        <PropertyRef Name="BOOK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLMOVEMENT_TBLUSERS">
+    <End Role="TBLUSERS" Type="Self.TBLUSERS" Multiplicity="0..1" />
+    <End Role="TBLMOVEMENT" Type="Self.TBLMOVEMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLUSERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBLMOVEMENT">
+        <PropertyRef Name="USERS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLPENALTY_TBLMOVEMENT">
+    <End Role="TBLMOVEMENT" Type="Self.TBLMOVEMENT" Multiplicity="0..1" />
+    <End Role="TBLPENALTY" Type="Self.TBLPENALTY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLMOVEMENT">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBLPENALTY">
+        <PropertyRef Name="SITUATION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLPENALTY_TBLUSERS">
+    <End Role="TBLUSERS" Type="Self.TBLUSERS" Multiplicity="0..1" />
+    <End Role="TBLPENALTY" Type="Self.TBLPENALTY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLUSERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBLPENALTY">
+        <PropertyRef Name="USERS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBLMSModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLAUTHOR" EntityType="Self.TBLAUTHOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLBOOK" EntityType="Self.TBLBOOK" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLCATEGORY" EntityType="Self.TBLCATEGORY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLMOVEMENT" EntityType="Self.TBLMOVEMENT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLPENALTY" EntityType="Self.TBLPENALTY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLSTAFF" EntityType="Self.TBLSTAFF" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLUSERS" EntityType="Self.TBLUSERS" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_TBLBOOK_TBLAUTHOR" Association="Self.FK_TBLBOOK_TBLAUTHOR">
+      <End Role="TBLAUTHOR" EntitySet="TBLAUTHOR" />
+      <End Role="TBLBOOK" EntitySet="TBLBOOK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLBOOK_TBLCATEGORY" Association="Self.FK_TBLBOOK_TBLCATEGORY">
+      <End Role="TBLCATEGORY" EntitySet="TBLCATEGORY" />
+      <End Role="TBLBOOK" EntitySet="TBLBOOK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLMOVEMENT_TBLBOOK" Association="Self.FK_TBLMOVEMENT_TBLBOOK">
+      <End Role="TBLBOOK" EntitySet="TBLBOOK" />
+      <End Role="TBLMOVEMENT" EntitySet="TBLMOVEMENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLMOVEMENT_TBLUSERS" Association="Self.FK_TBLMOVEMENT_TBLUSERS">
+      <End Role="TBLUSERS" EntitySet="TBLUSERS" />
+      <End Role="TBLMOVEMENT" EntitySet="TBLMOVEMENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLPENALTY_TBLMOVEMENT" Association="Self.FK_TBLPENALTY_TBLMOVEMENT">
+      <End Role="TBLMOVEMENT" EntitySet="TBLMOVEMENT" />
+      <End Role="TBLPENALTY" EntitySet="TBLPENALTY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLPENALTY_TBLUSERS" Association="Self.FK_TBLPENALTY_TBLUSERS">
+      <End Role="TBLUSERS" EntitySet="TBLUSERS" />
+      <End Role="TBLPENALTY" EntitySet="TBLPENALTY" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

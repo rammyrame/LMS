@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBLMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TBLAUTHOR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="SURNAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="DETAILS" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBLBOOK" Relationship="Self.FK_TBLBOOK_TBLAUTHOR" FromRole="TBLAUTHOR" ToRole="TBLBOOK" />
+  </EntityType>
+  <EntityType Name="TBLBOOK">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CATEGORY" Type="Byte" />
+    <Property Name="AUTHOR" Type="Int32" />
+    <Property Name="PRINTEDYEAR" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="PUBLISHER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PAGE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="SITUATION" Type="Boolean" />
+    <NavigationProperty Name="TBLAUTHOR" Relationship="Self.FK_TBLBOOK_TBLAUTHOR" FromRole="TBLBOOK" ToRole="TBLAUTHOR" />
+    <NavigationProperty Name="TBLCATEGORY" Relationship="Self.FK_TBLBOOK_TBLCATEGORY" FromRole="TBLBOOK" ToRole="TBLCATEGORY" />
+    <NavigationProperty Name="TBLMOVEMENT" Relationship="Self.FK_TBLMOVEMENT_TBLBOOK" FromRole="TBLBOOK" ToRole="TBLMOVEMENT" />
+  </EntityType>
+  <EntityType Name="TBLCATEGORY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBLBOOK" Relationship="Self.FK_TBLBOOK_TBLCATEGORY" FromRole="TBLCATEGORY" ToRole="TBLBOOK" />
+  </EntityType>
+  <EntityType Name="TBLMOVEMENT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BOOK" Type="Int32" />
+    <Property Name="USERS" Type="Int32" />
+    <Property Name="STAFF" Type="Int32" />
+    <Property Name="PURCHASEDATE" Type="DateTime" Precision="0" />
+    <Property Name="RETURNDATE" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="TBLBOOK" Relationship="Self.FK_TBLMOVEMENT_TBLBOOK" FromRole="TBLMOVEMENT" ToRole="TBLBOOK" />
+    <NavigationProperty Name="TBLUSERS" Relationship="Self.FK_TBLMOVEMENT_TBLUSERS" FromRole="TBLMOVEMENT" ToRole="TBLUSERS" />
+    <NavigationProperty Name="TBLPENALTY" Relationship="Self.FK_TBLPENALTY_TBLMOVEMENT" FromRole="TBLMOVEMENT" ToRole="TBLPENALTY" />
+  </EntityType>
+  <EntityType Name="TBLPENALTY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="USERS" Type="Int32" />
+    <Property Name="SITUATION" Type="Int32" />
+    <Property Name="START" Type="DateTime" Precision="0" />
+    <Property Name="FINISH" Type="DateTime" Precision="0" />
+    <Property Name="MONEY" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="TBLMOVEMENT" Relationship="Self.FK_TBLPENALTY_TBLMOVEMENT" FromRole="TBLPENALTY" ToRole="TBLMOVEMENT" />
+    <NavigationProperty Name="TBLUSERS" Relationship="Self.FK_TBLPENALTY_TBLUSERS" FromRole="TBLPENALTY" ToRole="TBLUSERS" />
+  </EntityType>
+  <EntityType Name="TBLSTAFF">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="STAFF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TBLUSERS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SURNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="USERNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PASSWORD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PHOTO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="PHONE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SCHOOL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBLMOVEMENT" Relationship="Self.FK_TBLMOVEMENT_TBLUSERS" FromRole="TBLUSERS" ToRole="TBLMOVEMENT" />
+    <NavigationProperty Name="TBLPENALTY" Relationship="Self.FK_TBLPENALTY_TBLUSERS" FromRole="TBLUSERS" ToRole="TBLPENALTY" />
+  </EntityType>
+  <Association Name="FK_TBLBOOK_TBLAUTHOR">
+    <End Role="TBLAUTHOR" Type="Self.TBLAUTHOR" Multiplicity="0..1" />
+    <End Role="TBLBOOK" Type="Self.TBLBOOK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLAUTHOR">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBLBOOK">
+        <PropertyRef Name="AUTHOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLBOOK_TBLCATEGORY">
+    <End Role="TBLCATEGORY" Type="Self.TBLCATEGORY" Multiplicity="0..1" />
+    <End Role="TBLBOOK" Type="Self.TBLBOOK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLCATEGORY">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBLBOOK">
+        <PropertyRef Name="CATEGORY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLMOVEMENT_TBLBOOK">
+    <End Role="TBLBOOK" Type="Self.TBLBOOK" Multiplicity="0..1" />
+    <End Role="TBLMOVEMENT" Type="Self.TBLMOVEMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLBOOK">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBLMOVEMENT">
+        <PropertyRef Name="BOOK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLMOVEMENT_TBLUSERS">
+    <End Role="TBLUSERS" Type="Self.TBLUSERS" Multiplicity="0..1" />
+    <End Role="TBLMOVEMENT" Type="Self.TBLMOVEMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLUSERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBLMOVEMENT">
+        <PropertyRef Name="USERS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLPENALTY_TBLMOVEMENT">
+    <End Role="TBLMOVEMENT" Type="Self.TBLMOVEMENT" Multiplicity="0..1" />
+    <End Role="TBLPENALTY" Type="Self.TBLPENALTY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLMOVEMENT">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBLPENALTY">
+        <PropertyRef Name="SITUATION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLPENALTY_TBLUSERS">
+    <End Role="TBLUSERS" Type="Self.TBLUSERS" Multiplicity="0..1" />
+    <End Role="TBLPENALTY" Type="Self.TBLPENALTY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLUSERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBLPENALTY">
+        <PropertyRef Name="USERS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBLMSEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TBLAUTHOR" EntityType="Self.TBLAUTHOR" />
+    <EntitySet Name="TBLBOOK" EntityType="Self.TBLBOOK" />
+    <EntitySet Name="TBLCATEGORY" EntityType="Self.TBLCATEGORY" />
+    <EntitySet Name="TBLMOVEMENT" EntityType="Self.TBLMOVEMENT" />
+    <EntitySet Name="TBLPENALTY" EntityType="Self.TBLPENALTY" />
+    <EntitySet Name="TBLSTAFF" EntityType="Self.TBLSTAFF" />
+    <EntitySet Name="TBLUSERS" EntityType="Self.TBLUSERS" />
+    <AssociationSet Name="FK_TBLBOOK_TBLAUTHOR" Association="Self.FK_TBLBOOK_TBLAUTHOR">
+      <End Role="TBLAUTHOR" EntitySet="TBLAUTHOR" />
+      <End Role="TBLBOOK" EntitySet="TBLBOOK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLBOOK_TBLCATEGORY" Association="Self.FK_TBLBOOK_TBLCATEGORY">
+      <End Role="TBLCATEGORY" EntitySet="TBLCATEGORY" />
+      <End Role="TBLBOOK" EntitySet="TBLBOOK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLMOVEMENT_TBLBOOK" Association="Self.FK_TBLMOVEMENT_TBLBOOK">
+      <End Role="TBLBOOK" EntitySet="TBLBOOK" />
+      <End Role="TBLMOVEMENT" EntitySet="TBLMOVEMENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLMOVEMENT_TBLUSERS" Association="Self.FK_TBLMOVEMENT_TBLUSERS">
+      <End Role="TBLUSERS" EntitySet="TBLUSERS" />
+      <End Role="TBLMOVEMENT" EntitySet="TBLMOVEMENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLPENALTY_TBLMOVEMENT" Association="Self.FK_TBLPENALTY_TBLMOVEMENT">
+      <End Role="TBLMOVEMENT" EntitySet="TBLMOVEMENT" />
+      <End Role="TBLPENALTY" EntitySet="TBLPENALTY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLPENALTY_TBLUSERS" Association="Self.FK_TBLPENALTY_TBLUSERS">
+      <End Role="TBLUSERS" EntitySet="TBLUSERS" />
+      <End Role="TBLPENALTY" EntitySet="TBLPENALTY" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

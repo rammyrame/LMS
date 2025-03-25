@@ -1,0 +1,38 @@
+﻿@model Graduation_Project.Models.Entity.TBLBOOK
+@{
+    ViewBag.Title = "AddBook";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<h2>AddBook</h2>
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Book Name</label>
+        @Html.TextBoxFor(b => b.NAME, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label style="display:block">Category of the book</label>
+        @Html.DropDownListFor(b => b.TBLCATEGORY.ID, (List<SelectListItem>)ViewBag.vle1, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label style="display:block">Author</label>
+        @Html.DropDownListFor(b => b.TBLAUTHOR.ID, (List<SelectListItem>)ViewBag.vle2, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label style="display:block">Printed Year</label>
+        @Html.TextBoxFor(b => b.PRINTEDYEAR, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label style="display:block">Publisher</label>
+        @Html.TextBoxFor(b => b.PUBLISHER, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label style="display:block">Page</label>
+        @Html.TextBoxFor(b => b.PAGE, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Add Book</button>
+    </div>
+</form>

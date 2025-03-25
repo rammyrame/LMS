@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\MEL\u0130H ERDEM\\Desktop\\melih190015LMS\\Project\\Graduation Project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DAAC44E5-C015-4FBE-BA26-174B2E266053}|Graduation Project\\Graduation Project.csproj|C:\\Users\\MEL\u0130H ERDEM\\Desktop\\melih190015LMS\\Project\\Graduation Project\\graduation project\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAAC44E5-C015-4FBE-BA26-174B2E266053}|Graduation Project\\Graduation Project.csproj|solutionrelative:graduation project\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAAC44E5-C015-4FBE-BA26-174B2E266053}|Graduation Project\\Graduation Project.csproj|c:\\users\\mel\u0130h erdem\\desktop\\melih190015lms\\project\\graduation project\\graduation project\\views\\book\\bookcall.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DAAC44E5-C015-4FBE-BA26-174B2E266053}|Graduation Project\\Graduation Project.csproj|solutionrelative:graduation project\\views\\book\\bookcall.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAAC44E5-C015-4FBE-BA26-174B2E266053}|Graduation Project\\Graduation Project.csproj|c:\\users\\mel\u0130h erdem\\desktop\\melih190015lms\\project\\graduation project\\graduation project\\views\\book\\addbook.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DAAC44E5-C015-4FBE-BA26-174B2E266053}|Graduation Project\\Graduation Project.csproj|solutionrelative:graduation project\\views\\book\\addbook.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAAC44E5-C015-4FBE-BA26-174B2E266053}|Graduation Project\\Graduation Project.csproj|c:\\users\\mel\u0130h erdem\\desktop\\melih190015lms\\project\\graduation project\\graduation project\\views\\book\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DAAC44E5-C015-4FBE-BA26-174B2E266053}|Graduation Project\\Graduation Project.csproj|solutionrelative:graduation project\\views\\book\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AddBook.cshtml",
+              "DocumentMoniker": "C:\\Users\\MEL\u0130H ERDEM\\Desktop\\melih190015LMS\\Project\\Graduation Project\\Graduation Project\\Views\\Book\\AddBook.cshtml",
+              "RelativeDocumentMoniker": "Graduation Project\\Views\\Book\\AddBook.cshtml",
+              "ToolTip": "C:\\Users\\MEL\u0130H ERDEM\\Desktop\\melih190015LMS\\Project\\Graduation Project\\Graduation Project\\Views\\Book\\AddBook.cshtml",
+              "RelativeToolTip": "Graduation Project\\Views\\Book\\AddBook.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAB3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-24T23:58:52.829Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BookCall.cshtml",
+              "DocumentMoniker": "C:\\Users\\MEL\u0130H ERDEM\\Desktop\\melih190015LMS\\Project\\Graduation Project\\Graduation Project\\Views\\Book\\BookCall.cshtml",
+              "RelativeDocumentMoniker": "Graduation Project\\Views\\Book\\BookCall.cshtml",
+              "ToolTip": "C:\\Users\\MEL\u0130H ERDEM\\Desktop\\melih190015LMS\\Project\\Graduation Project\\Graduation Project\\Views\\Book\\BookCall.cshtml",
+              "RelativeToolTip": "Graduation Project\\Views\\Book\\BookCall.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-24T23:50:20.371Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\MEL\u0130H ERDEM\\Desktop\\melih190015LMS\\Project\\Graduation Project\\Graduation Project\\Views\\Book\\Index.cshtml",
+              "RelativeDocumentMoniker": "Graduation Project\\Views\\Book\\Index.cshtml",
+              "ToolTip": "C:\\Users\\MEL\u0130H ERDEM\\Desktop\\melih190015LMS\\Project\\Graduation Project\\Graduation Project\\Views\\Book\\Index.cshtml",
+              "RelativeToolTip": "Graduation Project\\Views\\Book\\Index.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAABQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-24T22:27:51.032Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BookController.cs",
+              "DocumentMoniker": "C:\\Users\\MEL\u0130H ERDEM\\Desktop\\melih190015LMS\\Project\\Graduation Project\\Graduation Project\\Controllers\\BookController.cs",
+              "RelativeDocumentMoniker": "Graduation Project\\Controllers\\BookController.cs",
+              "ToolTip": "C:\\Users\\MEL\u0130H ERDEM\\Desktop\\melih190015LMS\\Project\\Graduation Project\\Graduation Project\\Controllers\\BookController.cs",
+              "RelativeToolTip": "Graduation Project\\Controllers\\BookController.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAcwGIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T22:15:27.654Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
