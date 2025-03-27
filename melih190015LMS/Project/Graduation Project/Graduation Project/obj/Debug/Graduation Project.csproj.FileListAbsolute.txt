@@ -70,3 +70,7 @@ C:\Users\MELİH ERDEM\Desktop\melih190015LMS\Project\Graduation Project\Graduati
 C:\Users\MELİH ERDEM\Desktop\melih190015LMS\Project\Graduation Project\Graduation Project\obj\Debug\Graduati.512903E3.Up2Date
 C:\Users\MELİH ERDEM\Desktop\melih190015LMS\Project\Graduation Project\Graduation Project\obj\Debug\Graduation Project.dll
 C:\Users\MELİH ERDEM\Desktop\melih190015LMS\Project\Graduation Project\Graduation Project\obj\Debug\Graduation Project.pdb
+C:\Users\MELİH ERDEM\Desktop\melih190015LMS\Project\Graduation Project\Graduation Project\bin\PagedList.dll
+C:\Users\MELİH ERDEM\Desktop\melih190015LMS\Project\Graduation Project\Graduation Project\bin\PagedList.Mvc.dll
+C:\Users\MELİH ERDEM\Desktop\melih190015LMS\Project\Graduation Project\Graduation Project\bin\PagedList.xml
+C:\Users\MELİH ERDEM\Desktop\melih190015LMS\Project\Graduation Project\Graduation Project\bin\PagedList.Mvc.xml

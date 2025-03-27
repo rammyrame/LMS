@@ -1,0 +1,35 @@
+﻿@model Graduation_Project.Models.Entity.TBLMOVEMENT
+@{
+    ViewBag.Title = "Lend";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<h2>Lend</h2>
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>User ID</label>
+        @Html.TextBoxFor(b => b.USERS, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label style="display:block">Book ID</label>
+        @Html.TextBoxFor(b => b.BOOK, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label style="display:block">Staff</label>
+        @Html.TextBoxFor(b => b.STAFF, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label style="display:block">Pick Up Date</label>
+        <input type="text" class="form-control" name="PURCHASEDATE" value="@DateTime.Now.ToShortDateString()"/>
+    </div>
+    <div style="margin-top:15px">
+        <label style="display:block">Return Date</label>
+        <input type="text" class="form-control" name="RETURNDATE" value="@DateTime.Now.AddDays(7).ToShortDateString()" />
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Lend a Book</button>
+    </div>
+</form>

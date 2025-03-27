@@ -11,10 +11,13 @@ namespace Graduation_Project.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TBLSTAFF
     {
         public byte ID { get; set; }
+
+        [Required(ErrorMessage = "Staff name cannot be left blank")]
         public string STAFF { get; set; }
     }
 }
