@@ -40,6 +40,7 @@ namespace Graduation_Project.Controllers
         [HttpPost]
         public ActionResult AddBook(TBLBOOK p)
         {
+            p.SITUATION = true;
             var ctg = db.TBLCATEGORY.Where(c => c.ID == p.TBLCATEGORY.ID).FirstOrDefault();
             var aut = db.TBLAUTHOR.Where(a => a.ID == p.TBLAUTHOR.ID).FirstOrDefault();
             p.TBLCATEGORY = ctg;
@@ -76,6 +77,7 @@ namespace Graduation_Project.Controllers
         }
         public ActionResult UpdateBook(TBLBOOK p)
         {
+            p.SITUATION = true;
             var book = db.TBLBOOK.Find(p.ID);
             book.NAME = p.NAME;
             book.PRINTEDYEAR = p.PRINTEDYEAR;

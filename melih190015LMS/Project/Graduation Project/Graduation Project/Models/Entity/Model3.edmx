@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBLMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DBLMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -37,13 +37,6 @@
           <Property Name="PAGE" Type="varchar" MaxLength="4" />
           <Property Name="SITUATION" Type="bit" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'DBLMS.dbo.TBLCASH' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TBLCASH">
-          <Property Name="ID" Type="int" />
-          <Property Name="MONTH" Type="varchar" MaxLength="20" />
-          <Property Name="AMOUNT" Type="decimal" Precision="18" Scale="2" />
-        </EntityType>-->
         <EntityType Name="TBLCATEGORY">
           <Key>
             <PropertyRef Name="ID" />
@@ -58,7 +51,7 @@ warning 6013: The table/view 'DBLMS.dbo.TBLCASH' does not have a primary key def
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="BOOK" Type="int" />
           <Property Name="USERS" Type="int" />
-          <Property Name="STAFF" Type="int" />
+          <Property Name="STAFF" Type="tinyint" />
           <Property Name="PURCHASEDATE" Type="smalldatetime" />
           <Property Name="RETURNDATE" Type="smalldatetime" />
         </EntityType>
@@ -130,6 +123,18 @@ warning 6013: The table/view 'DBLMS.dbo.TBLCASH' does not have a primary key def
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TBLMOVEMENT_TBLSTAFF">
+          <End Role="TBLSTAFF" Type="Self.TBLSTAFF" Multiplicity="0..1" />
+          <End Role="TBLMOVEMENT" Type="Self.TBLMOVEMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLSTAFF">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLMOVEMENT">
+              <PropertyRef Name="STAFF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_TBLMOVEMENT_TBLUSERS">
           <End Role="TBLUSERS" Type="Self.TBLUSERS" Multiplicity="0..1" />
           <End Role="TBLMOVEMENT" Type="Self.TBLMOVEMENT" Multiplicity="*" />
@@ -187,6 +192,10 @@ warning 6013: The table/view 'DBLMS.dbo.TBLCASH' does not have a primary key def
             <End Role="TBLBOOK" EntitySet="TBLBOOK" />
             <End Role="TBLMOVEMENT" EntitySet="TBLMOVEMENT" />
           </AssociationSet>
+          <AssociationSet Name="FK_TBLMOVEMENT_TBLSTAFF" Association="Self.FK_TBLMOVEMENT_TBLSTAFF">
+            <End Role="TBLSTAFF" EntitySet="TBLSTAFF" />
+            <End Role="TBLMOVEMENT" EntitySet="TBLMOVEMENT" />
+          </AssociationSet>
           <AssociationSet Name="FK_TBLMOVEMENT_TBLUSERS" Association="Self.FK_TBLMOVEMENT_TBLUSERS">
             <End Role="TBLUSERS" EntitySet="TBLUSERS" />
             <End Role="TBLMOVEMENT" EntitySet="TBLMOVEMENT" />
@@ -200,8 +209,7 @@ warning 6013: The table/view 'DBLMS.dbo.TBLCASH' does not have a primary key def
             <End Role="TBLPENALTY" EntitySet="TBLPENALTY" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBLMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -256,12 +264,13 @@ warning 6013: The table/view 'DBLMS.dbo.TBLCASH' does not have a primary key def
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="BOOK" Type="Int32" />
           <Property Name="USERS" Type="Int32" />
-          <Property Name="STAFF" Type="Int32" />
+          <Property Name="STAFF" Type="Byte" />
           <Property Name="PURCHASEDATE" Type="DateTime" Precision="0" />
           <Property Name="RETURNDATE" Type="DateTime" Precision="0" />
           <NavigationProperty Name="TBLBOOK" Relationship="Self.FK_TBLMOVEMENT_TBLBOOK" FromRole="TBLMOVEMENT" ToRole="TBLBOOK" />
           <NavigationProperty Name="TBLUSERS" Relationship="Self.FK_TBLMOVEMENT_TBLUSERS" FromRole="TBLMOVEMENT" ToRole="TBLUSERS" />
           <NavigationProperty Name="TBLPENALTY" Relationship="Self.FK_TBLPENALTY_TBLMOVEMENT" FromRole="TBLMOVEMENT" ToRole="TBLPENALTY" />
+          <NavigationProperty Name="TBLSTAFF" Relationship="DBLMSModel.FK_TBLMOVEMENT_TBLSTAFF" FromRole="TBLMOVEMENT" ToRole="TBLSTAFF" />
         </EntityType>
         <EntityType Name="TBLPENALTY">
           <Key>
@@ -282,6 +291,7 @@ warning 6013: The table/view 'DBLMS.dbo.TBLCASH' does not have a primary key def
           </Key>
           <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="STAFF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBLMOVEMENT" Relationship="DBLMSModel.FK_TBLMOVEMENT_TBLSTAFF" FromRole="TBLSTAFF" ToRole="TBLMOVEMENT" />
         </EntityType>
         <EntityType Name="TBLUSERS">
           <Key>
@@ -404,7 +414,23 @@ warning 6013: The table/view 'DBLMS.dbo.TBLCASH' does not have a primary key def
             <End Role="TBLUSERS" EntitySet="TBLUSERS" />
             <End Role="TBLPENALTY" EntitySet="TBLPENALTY" />
           </AssociationSet>
+          <AssociationSet Name="FK_TBLMOVEMENT_TBLSTAFF" Association="DBLMSModel.FK_TBLMOVEMENT_TBLSTAFF">
+            <End Role="TBLSTAFF" EntitySet="TBLSTAFF" />
+            <End Role="TBLMOVEMENT" EntitySet="TBLMOVEMENT" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_TBLMOVEMENT_TBLSTAFF">
+          <End Type="DBLMSModel.TBLSTAFF" Role="TBLSTAFF" Multiplicity="0..1" />
+          <End Type="DBLMSModel.TBLMOVEMENT" Role="TBLMOVEMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLSTAFF">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLMOVEMENT">
+              <PropertyRef Name="STAFF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

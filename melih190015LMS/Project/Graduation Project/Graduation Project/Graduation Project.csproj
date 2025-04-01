@@ -264,6 +264,8 @@
     <Content Include="Views\Users\UsersAdd.cshtml" />
     <Content Include="Views\Users\UsersCall.cshtml" />
     <Content Include="Views\Lend\Lend.cshtml" />
+    <Content Include="Views\Lend\Index.cshtml" />
+    <Content Include="Views\Lend\ReturnTheLoan.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

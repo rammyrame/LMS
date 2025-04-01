@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2bd77127574046479b2ac799f2d4fcff" Name="Diagram1">
+      <Diagram DiagramId="2bd77127574046479b2ac799f2d4fcff" Name="Diagram1" ZoomLevel="86">
         <EntityTypeShape EntityType="DBLMSModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBLMSModel.TBLAUTHOR" Width="1.5" PointX="1.5" PointY="11.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DBLMSModel.TBLBOOK" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="DBLMSModel.TBLCATEGORY" Width="1.5" PointX="1.5" PointY="14.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DBLMSModel.TBLMOVEMENT" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DBLMSModel.TBLPENALTY" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBLMSModel.TBLSTAFF" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLMSModel.TBLSTAFF" Width="1.5" PointX="5.625" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DBLMSModel.TBLUSERS" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="DBLMSModel.FK_TBLBOOK_TBLAUTHOR" ManuallyRouted="false" />
         <AssociationConnector Association="DBLMSModel.FK_TBLBOOK_TBLCATEGORY" ManuallyRouted="false" />
@@ -19,6 +19,7 @@
         <AssociationConnector Association="DBLMSModel.FK_TBLMOVEMENT_TBLUSERS" ManuallyRouted="false" />
         <AssociationConnector Association="DBLMSModel.FK_TBLPENALTY_TBLMOVEMENT" ManuallyRouted="false" />
         <AssociationConnector Association="DBLMSModel.FK_TBLPENALTY_TBLUSERS" ManuallyRouted="false" />
+        <AssociationConnector Association="DBLMSModel.FK_TBLMOVEMENT_TBLSTAFF" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

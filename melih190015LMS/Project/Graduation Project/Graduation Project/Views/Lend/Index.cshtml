@@ -1,0 +1,43 @@
+﻿@model List<Graduation_Project.Models.Entity.TBLMOVEMENT>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+asdasd
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+<h2>Books on Loan List</h2>
+
+@*@using (Html.BeginForm("Find", "Book", FormMethod.Get))
+    {
+        <div style="margin-bottom:15px; margin-top:15px;">
+            <b>Enter the book name to search for: </b> @Html.TextBox("p")
+            <input type="submit" value="Find" />
+        </div>
+    }
+*@
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Book Name</th>
+        <th>Name</th>
+        <th>Staff</th>
+        <th>Purchase Date</th>
+        <th>Return Date</th>
+        <th>Return</th>
+    </tr>
+    @foreach (var z in Model)
+    {
+        <tr>
+            <td>@z.ID</td>
+            <td>@z.TBLBOOK.NAME</td>
+            <td>@z.TBLUSERS.NAME @z.TBLUSERS.SURNAME</td>
+            <td>@z.TBLSTAFF.STAFF</td>
+            <td>@Convert.ToDateTime(z.PURCHASEDATE).ToString("dd/MM/yyyy")</td>
+            <td>@Convert.ToDateTime(z.RETURNDATE).ToString("dd/MM/yyyy")</td>
+            <td><a href="/Lend/ReturnTheLoan/@z.ID" class="btn btn-danger">Return the book</a></td>
+        </tr>
+    }
+</table>

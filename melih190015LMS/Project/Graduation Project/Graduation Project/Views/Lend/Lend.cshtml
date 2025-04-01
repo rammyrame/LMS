@@ -23,11 +23,11 @@
     </div>
     <div style="margin-top:15px">
         <label style="display:block">Pick Up Date</label>
-        <input type="text" class="form-control" name="PURCHASEDATE" value="@DateTime.Now.ToShortDateString()"/>
+        <input type="text" class="form-control" name="PURCHASEDATE" value="@DateTime.Now.ToShortDateString()" readonly/>
     </div>
     <div style="margin-top:15px">
         <label style="display:block">Return Date</label>
-        <input type="text" class="form-control" name="RETURNDATE" value="@DateTime.Now.AddDays(7).ToShortDateString()" />
+        <input type="text" class="form-control" name="RETURNDATE" value="@DateTime.Now.AddDays(7).ToShortDateString()" readonly />
     </div>
     <div style="margin-top:15px">
         <button class="btn btn-info">Lend a Book</button>

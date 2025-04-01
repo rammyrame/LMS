@@ -14,7 +14,8 @@ namespace Graduation_Project.Controllers
         DBLMSEntities2 db = new DBLMSEntities2();
         public ActionResult Index()
         {
-            return View();
+            var values = db.TBLMOVEMENT.ToList();
+            return View(values);
         }
         [HttpGet]
         public ActionResult Lend()
@@ -24,9 +25,16 @@ namespace Graduation_Project.Controllers
         [HttpPost]
         public ActionResult Lend(TBLMOVEMENT p)
         {
+            p.PURCHASEDATE = DateTime.Today;
             db.TBLMOVEMENT.Add(p);
             db.SaveChanges();
             return View();
+        }
+        public ActionResult ReturnTheLoan(int id)
+        {
+            var lon = db.TBLMOVEMENT.Find(id);
+            return View("ReturnTheLoan", lon);
+
         }
     }
 }

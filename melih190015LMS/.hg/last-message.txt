@@ -1,1 +1,1 @@
-book adding, deleting, updating and search filter running.
+The design and functions of the return page have been completed. Trigger has been created. Database has been updated.

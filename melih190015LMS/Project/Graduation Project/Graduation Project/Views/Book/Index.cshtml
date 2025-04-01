@@ -1,5 +1,5 @@
-﻿@using Graduation_Project.Models.Entity
-@model List<TBLBOOK>
+﻿@model List<Graduation_Project.Models.Entity.TBLBOOK>
+
 
 @{
     ViewBag.Title = "Index";
@@ -10,12 +10,12 @@
 <h2>Index</h2>
 
 @using (Html.BeginForm("Find", "Book", FormMethod.Get))
-            {
-                <div style="margin-bottom:15px; margin-top:15px;">
-                    <b>Enter the book name to search for: </b> @Html.TextBox("p")
-                    <input type="submit" value="Find" />
-                </div>
-            }
+{
+    <div style="margin-bottom:15px; margin-top:15px;">
+        <b>Enter the book name to search for: </b> @Html.TextBox("p")
+        <input type="submit" value="Find" />
+    </div>
+}
 
 <table class="table table-bordered">
     <tr>
@@ -30,20 +30,20 @@
         <th>Delete</th>
         <th>Update</th>
     </tr>
-    @foreach(var b in Model)
-            {
-                <tr>
-                    <td>@b.ID</td>
-                    <td>@b.NAME</td>
-                    <td>@b.TBLAUTHOR.NAME @b.TBLAUTHOR.SURNAME</td>
-                    <td>@b.TBLCATEGORY.NAME</td>
-                    <td>@b.PRINTEDYEAR</td>
-                    <td>@b.PUBLISHER</td>
-                    <td>@b.PAGE</td>
-                    <td>@b.SITUATION</td>
-                    <td><a href="/Book/DeleteBook/@b.ID" class="btn btn-danger">Delete</a></td>
-                    <td><a href="/Book/BookCall/@b.ID" class="btn btn-success">Update</a></td>
-                </tr>
-            }
+    @foreach (var b in Model)
+    {
+        <tr>
+            <td>@b.ID</td>
+            <td>@b.NAME</td>
+            <td>@b.TBLAUTHOR.NAME @b.TBLAUTHOR.SURNAME</td>
+            <td>@b.TBLCATEGORY.NAME</td>
+            <td>@b.PRINTEDYEAR</td>
+            <td>@b.PUBLISHER</td>
+            <td>@b.PAGE</td>
+            <td>@b.SITUATION</td>
+            <td><a href="/Book/DeleteBook/@b.ID" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Book/BookCall/@b.ID" class="btn btn-success">Update</a></td>
+        </tr>
+    }
 </table>
 <a href="/Book/AddBook/" class="btn btn-primary">New Add Book</a>

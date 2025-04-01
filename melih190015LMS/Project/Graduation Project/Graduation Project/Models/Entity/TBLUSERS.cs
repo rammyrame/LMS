@@ -11,8 +11,7 @@ namespace Graduation_Project.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class TBLUSERS
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,23 +20,17 @@ namespace Graduation_Project.Models.Entity
             this.TBLMOVEMENT = new HashSet<TBLMOVEMENT>();
             this.TBLPENALTY = new HashSet<TBLPENALTY>();
         }
-
+    
         public int ID { get; set; }
-
-        [Required(ErrorMessage = "Name cannot be left blank")]
-        [StringLength(20, ErrorMessage = ("You can enter up to 20 characters"))]
         public string NAME { get; set; }
         public string SURNAME { get; set; }
         public string MAIL { get; set; }
         public string USERNAME { get; set; }
-
-        [Required(ErrorMessage = "Password cannot be left blank")]
-        [StringLength(20, ErrorMessage = ("You can enter up to 20 characters"))]
         public string PASSWORD { get; set; }
         public string PHOTO { get; set; }
         public string PHONE { get; set; }
         public string SCHOOL { get; set; }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBLMOVEMENT> TBLMOVEMENT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

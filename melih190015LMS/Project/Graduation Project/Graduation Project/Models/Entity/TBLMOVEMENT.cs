@@ -23,7 +23,7 @@ namespace Graduation_Project.Models.Entity
         public int ID { get; set; }
         public Nullable<int> BOOK { get; set; }
         public Nullable<int> USERS { get; set; }
-        public Nullable<int> STAFF { get; set; }
+        public Nullable<byte> STAFF { get; set; }
         public Nullable<System.DateTime> PURCHASEDATE { get; set; }
         public Nullable<System.DateTime> RETURNDATE { get; set; }
     
@@ -31,5 +31,6 @@ namespace Graduation_Project.Models.Entity
         public virtual TBLUSERS TBLUSERS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBLPENALTY> TBLPENALTY { get; set; }
+        public virtual TBLSTAFF TBLSTAFF { get; set; }
     }
 }

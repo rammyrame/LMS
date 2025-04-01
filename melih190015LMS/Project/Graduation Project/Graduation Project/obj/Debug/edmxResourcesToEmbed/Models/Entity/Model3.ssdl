@@ -32,13 +32,6 @@
     <Property Name="PAGE" Type="varchar" MaxLength="4" />
     <Property Name="SITUATION" Type="bit" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'DBLMS.dbo.TBLCASH' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TBLCASH">
-          <Property Name="ID" Type="int" />
-          <Property Name="MONTH" Type="varchar" MaxLength="20" />
-          <Property Name="AMOUNT" Type="decimal" Precision="18" Scale="2" />
-        </EntityType>-->
   <EntityType Name="TBLCATEGORY">
     <Key>
       <PropertyRef Name="ID" />
@@ -53,7 +46,7 @@ warning 6013: The table/view 'DBLMS.dbo.TBLCASH' does not have a primary key def
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="BOOK" Type="int" />
     <Property Name="USERS" Type="int" />
-    <Property Name="STAFF" Type="int" />
+    <Property Name="STAFF" Type="tinyint" />
     <Property Name="PURCHASEDATE" Type="smalldatetime" />
     <Property Name="RETURNDATE" Type="smalldatetime" />
   </EntityType>
@@ -125,6 +118,18 @@ warning 6013: The table/view 'DBLMS.dbo.TBLCASH' does not have a primary key def
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_TBLMOVEMENT_TBLSTAFF">
+    <End Role="TBLSTAFF" Type="Self.TBLSTAFF" Multiplicity="0..1" />
+    <End Role="TBLMOVEMENT" Type="Self.TBLMOVEMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLSTAFF">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBLMOVEMENT">
+        <PropertyRef Name="STAFF" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_TBLMOVEMENT_TBLUSERS">
     <End Role="TBLUSERS" Type="Self.TBLUSERS" Multiplicity="0..1" />
     <End Role="TBLMOVEMENT" Type="Self.TBLMOVEMENT" Multiplicity="*" />
@@ -180,6 +185,10 @@ warning 6013: The table/view 'DBLMS.dbo.TBLCASH' does not have a primary key def
     </AssociationSet>
     <AssociationSet Name="FK_TBLMOVEMENT_TBLBOOK" Association="Self.FK_TBLMOVEMENT_TBLBOOK">
       <End Role="TBLBOOK" EntitySet="TBLBOOK" />
+      <End Role="TBLMOVEMENT" EntitySet="TBLMOVEMENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLMOVEMENT_TBLSTAFF" Association="Self.FK_TBLMOVEMENT_TBLSTAFF">
+      <End Role="TBLSTAFF" EntitySet="TBLSTAFF" />
       <End Role="TBLMOVEMENT" EntitySet="TBLMOVEMENT" />
     </AssociationSet>
     <AssociationSet Name="FK_TBLMOVEMENT_TBLUSERS" Association="Self.FK_TBLMOVEMENT_TBLUSERS">
