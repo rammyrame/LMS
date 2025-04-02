@@ -25,6 +25,7 @@
     <EntitySetMapping Name="TBLBOOK">
       <EntityTypeMapping TypeName="DBLMSModel.TBLBOOK">
         <MappingFragment StoreEntitySet="TBLBOOK">
+          <ScalarProperty Name="BOOKPICTURE" ColumnName="BOOKPICTURE" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="NAME" ColumnName="NAME" />
           <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
@@ -47,6 +48,8 @@
     <EntitySetMapping Name="TBLMOVEMENT">
       <EntityTypeMapping TypeName="DBLMSModel.TBLMOVEMENT">
         <MappingFragment StoreEntitySet="TBLMOVEMENT">
+          <ScalarProperty Name="RETURNEDDATE" ColumnName="RETURNEDDATE" />
+          <ScalarProperty Name="PROCESSTATUS" ColumnName="PROCESSTATUS" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="BOOK" ColumnName="BOOK" />
           <ScalarProperty Name="USERS" ColumnName="USERS" />

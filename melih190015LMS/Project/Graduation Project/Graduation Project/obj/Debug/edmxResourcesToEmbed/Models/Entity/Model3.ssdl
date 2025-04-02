@@ -31,6 +31,7 @@
     <Property Name="PUBLISHER" Type="varchar" MaxLength="50" />
     <Property Name="PAGE" Type="varchar" MaxLength="4" />
     <Property Name="SITUATION" Type="bit" />
+    <Property Name="BOOKPICTURE" Type="varchar" MaxLength="250" />
   </EntityType>
   <EntityType Name="TBLCATEGORY">
     <Key>
@@ -49,6 +50,8 @@
     <Property Name="STAFF" Type="tinyint" />
     <Property Name="PURCHASEDATE" Type="smalldatetime" />
     <Property Name="RETURNDATE" Type="smalldatetime" />
+    <Property Name="PROCESSTATUS" Type="bit" />
+    <Property Name="RETURNEDDATE" Type="smalldatetime" />
   </EntityType>
   <EntityType Name="TBLPENALTY">
     <Key>

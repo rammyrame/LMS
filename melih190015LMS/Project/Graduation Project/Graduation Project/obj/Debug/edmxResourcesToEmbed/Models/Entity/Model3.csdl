@@ -35,6 +35,7 @@
     <NavigationProperty Name="TBLAUTHOR" Relationship="Self.FK_TBLBOOK_TBLAUTHOR" FromRole="TBLBOOK" ToRole="TBLAUTHOR" />
     <NavigationProperty Name="TBLCATEGORY" Relationship="Self.FK_TBLBOOK_TBLCATEGORY" FromRole="TBLBOOK" ToRole="TBLCATEGORY" />
     <NavigationProperty Name="TBLMOVEMENT" Relationship="Self.FK_TBLMOVEMENT_TBLBOOK" FromRole="TBLBOOK" ToRole="TBLMOVEMENT" />
+    <Property Name="BOOKPICTURE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="TBLCATEGORY">
     <Key>
@@ -58,6 +59,8 @@
     <NavigationProperty Name="TBLUSERS" Relationship="Self.FK_TBLMOVEMENT_TBLUSERS" FromRole="TBLMOVEMENT" ToRole="TBLUSERS" />
     <NavigationProperty Name="TBLPENALTY" Relationship="Self.FK_TBLPENALTY_TBLMOVEMENT" FromRole="TBLMOVEMENT" ToRole="TBLPENALTY" />
     <NavigationProperty Name="TBLSTAFF" Relationship="DBLMSModel.FK_TBLMOVEMENT_TBLSTAFF" FromRole="TBLMOVEMENT" ToRole="TBLSTAFF" />
+    <Property Name="PROCESSTATUS" Type="Boolean" />
+    <Property Name="RETURNEDDATE" Type="DateTime" Precision="0" />
   </EntityType>
   <EntityType Name="TBLPENALTY">
     <Key>

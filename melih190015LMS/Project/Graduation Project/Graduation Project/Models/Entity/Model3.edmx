@@ -36,6 +36,7 @@
           <Property Name="PUBLISHER" Type="varchar" MaxLength="50" />
           <Property Name="PAGE" Type="varchar" MaxLength="4" />
           <Property Name="SITUATION" Type="bit" />
+          <Property Name="BOOKPICTURE" Type="varchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="TBLCATEGORY">
           <Key>
@@ -54,6 +55,8 @@
           <Property Name="STAFF" Type="tinyint" />
           <Property Name="PURCHASEDATE" Type="smalldatetime" />
           <Property Name="RETURNDATE" Type="smalldatetime" />
+          <Property Name="PROCESSTATUS" Type="bit" />
+          <Property Name="RETURNEDDATE" Type="smalldatetime" />
         </EntityType>
         <EntityType Name="TBLPENALTY">
           <Key>
@@ -248,6 +251,7 @@
           <NavigationProperty Name="TBLAUTHOR" Relationship="Self.FK_TBLBOOK_TBLAUTHOR" FromRole="TBLBOOK" ToRole="TBLAUTHOR" />
           <NavigationProperty Name="TBLCATEGORY" Relationship="Self.FK_TBLBOOK_TBLCATEGORY" FromRole="TBLBOOK" ToRole="TBLCATEGORY" />
           <NavigationProperty Name="TBLMOVEMENT" Relationship="Self.FK_TBLMOVEMENT_TBLBOOK" FromRole="TBLBOOK" ToRole="TBLMOVEMENT" />
+          <Property Name="BOOKPICTURE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="TBLCATEGORY">
           <Key>
@@ -271,6 +275,8 @@
           <NavigationProperty Name="TBLUSERS" Relationship="Self.FK_TBLMOVEMENT_TBLUSERS" FromRole="TBLMOVEMENT" ToRole="TBLUSERS" />
           <NavigationProperty Name="TBLPENALTY" Relationship="Self.FK_TBLPENALTY_TBLMOVEMENT" FromRole="TBLMOVEMENT" ToRole="TBLPENALTY" />
           <NavigationProperty Name="TBLSTAFF" Relationship="DBLMSModel.FK_TBLMOVEMENT_TBLSTAFF" FromRole="TBLMOVEMENT" ToRole="TBLSTAFF" />
+          <Property Name="PROCESSTATUS" Type="Boolean" />
+          <Property Name="RETURNEDDATE" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="TBLPENALTY">
           <Key>
@@ -461,6 +467,7 @@
           <EntitySetMapping Name="TBLBOOK">
             <EntityTypeMapping TypeName="DBLMSModel.TBLBOOK">
               <MappingFragment StoreEntitySet="TBLBOOK">
+                <ScalarProperty Name="BOOKPICTURE" ColumnName="BOOKPICTURE" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
                 <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
@@ -483,6 +490,8 @@
           <EntitySetMapping Name="TBLMOVEMENT">
             <EntityTypeMapping TypeName="DBLMSModel.TBLMOVEMENT">
               <MappingFragment StoreEntitySet="TBLMOVEMENT">
+                <ScalarProperty Name="RETURNEDDATE" ColumnName="RETURNEDDATE" />
+                <ScalarProperty Name="PROCESSTATUS" ColumnName="PROCESSTATUS" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="BOOK" ColumnName="BOOK" />
                 <ScalarProperty Name="USERS" ColumnName="USERS" />

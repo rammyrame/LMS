@@ -26,6 +26,8 @@ namespace Graduation_Project.Models.Entity
         public Nullable<byte> STAFF { get; set; }
         public Nullable<System.DateTime> PURCHASEDATE { get; set; }
         public Nullable<System.DateTime> RETURNDATE { get; set; }
+        public Nullable<bool> PROCESSTATUS { get; set; }
+        public Nullable<System.DateTime> RETURNEDDATE { get; set; }
     
         public virtual TBLBOOK TBLBOOK { get; set; }
         public virtual TBLUSERS TBLUSERS { get; set; }

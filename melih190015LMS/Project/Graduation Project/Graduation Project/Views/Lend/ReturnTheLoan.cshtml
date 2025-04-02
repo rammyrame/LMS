@@ -30,7 +30,7 @@
         @Html.TextBoxFor(s => s.RETURNDATE, "{0: dd.MM.yyyy}", new { @class = "form-control" })
         <br />
         <label>Date the User Returned</label>
-        <input type="text" class="form-control" value="@DateTime.Now.ToShortDateString()" />
+        <input type="text" class="form-control" name="RETURNEDDATE" value="@DateTime.Now.ToShortDateString()" />
     </div>
     <div>
         <button class="btn btn-info">Lend a Book</button>

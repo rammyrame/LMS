@@ -1,1 +1,1 @@
-The design and functions of the return page have been completed. Trigger has been created. Database has been updated.
+Book return process completed. The process of seeing returned books in the Operations tab is completed. The creation of the Showcase Panel has started. A sample template for the Showcase Panel has been applied to the project.

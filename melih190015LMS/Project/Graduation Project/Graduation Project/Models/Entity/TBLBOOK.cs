@@ -28,6 +28,7 @@ namespace Graduation_Project.Models.Entity
         public string PUBLISHER { get; set; }
         public string PAGE { get; set; }
         public Nullable<bool> SITUATION { get; set; }
+        public string BOOKPICTURE { get; set; }
     
         public virtual TBLAUTHOR TBLAUTHOR { get; set; }
         public virtual TBLCATEGORY TBLCATEGORY { get; set; }
