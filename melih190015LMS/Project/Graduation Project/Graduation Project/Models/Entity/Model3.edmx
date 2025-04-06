@@ -15,6 +15,13 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
+        <EntityType Name="TBLABOUT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ABOUT" Type="varchar(max)" />
+        </EntityType>
         <EntityType Name="TBLAUTHOR">
           <Key>
             <PropertyRef Name="ID" />
@@ -38,12 +45,30 @@
           <Property Name="SITUATION" Type="bit" />
           <Property Name="BOOKPICTURE" Type="varchar" MaxLength="250" />
         </EntityType>
+        <EntityType Name="TBLCASH">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="MONTH" Type="varchar" MaxLength="20" />
+          <Property Name="AMOUNT" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
         <EntityType Name="TBLCATEGORY">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NAME" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TBLCONTACT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" />
+          <Property Name="MAIL" Type="varchar" MaxLength="50" />
+          <Property Name="TOPIC" Type="varchar" MaxLength="50" />
+          <Property Name="MESSAGE" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="TBLMOVEMENT">
           <Key>
@@ -176,9 +201,12 @@
         </Association>
         <EntityContainer Name="DBLMSModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLABOUT" EntityType="Self.TBLABOUT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLAUTHOR" EntityType="Self.TBLAUTHOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLBOOK" EntityType="Self.TBLBOOK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLCASH" EntityType="Self.TBLCASH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLCATEGORY" EntityType="Self.TBLCATEGORY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLCONTACT" EntityType="Self.TBLCONTACT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLMOVEMENT" EntityType="Self.TBLMOVEMENT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLPENALTY" EntityType="Self.TBLPENALTY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLSTAFF" EntityType="Self.TBLSTAFF" Schema="dbo" store:Type="Tables" />
@@ -424,6 +452,9 @@
             <End Role="TBLSTAFF" EntitySet="TBLSTAFF" />
             <End Role="TBLMOVEMENT" EntitySet="TBLMOVEMENT" />
           </AssociationSet>
+          <EntitySet Name="TBLABOUT" EntityType="DBLMSModel.TBLABOUT" />
+          <EntitySet Name="TBLCONTACT" EntityType="DBLMSModel.TBLCONTACT" />
+          <EntitySet Name="TBLCASH" EntityType="DBLMSModel.TBLCASH" />
         </EntityContainer>
         <Association Name="FK_TBLMOVEMENT_TBLSTAFF">
           <End Type="DBLMSModel.TBLSTAFF" Role="TBLSTAFF" Multiplicity="0..1" />
@@ -437,6 +468,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="TBLABOUT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ABOUT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBLCONTACT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TOPIC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MESSAGE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBLCASH">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="MONTH" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AMOUNT" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -533,6 +589,34 @@
                 <ScalarProperty Name="PHOTO" ColumnName="PHOTO" />
                 <ScalarProperty Name="PHONE" ColumnName="PHONE" />
                 <ScalarProperty Name="SCHOOL" ColumnName="SCHOOL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLABOUT">
+            <EntityTypeMapping TypeName="DBLMSModel.TBLABOUT">
+              <MappingFragment StoreEntitySet="TBLABOUT">
+                <ScalarProperty Name="ABOUT" ColumnName="ABOUT" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLCONTACT">
+            <EntityTypeMapping TypeName="DBLMSModel.TBLCONTACT">
+              <MappingFragment StoreEntitySet="TBLCONTACT">
+                <ScalarProperty Name="MESSAGE" ColumnName="MESSAGE" />
+                <ScalarProperty Name="TOPIC" ColumnName="TOPIC" />
+                <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLCASH">
+            <EntityTypeMapping TypeName="DBLMSModel.TBLCASH">
+              <MappingFragment StoreEntitySet="TBLCASH">
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+                <ScalarProperty Name="MONTH" ColumnName="MONTH" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

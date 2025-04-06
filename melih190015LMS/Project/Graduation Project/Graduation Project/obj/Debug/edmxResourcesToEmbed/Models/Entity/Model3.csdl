@@ -208,6 +208,9 @@
       <End Role="TBLSTAFF" EntitySet="TBLSTAFF" />
       <End Role="TBLMOVEMENT" EntitySet="TBLMOVEMENT" />
     </AssociationSet>
+    <EntitySet Name="TBLABOUT" EntityType="DBLMSModel.TBLABOUT" />
+    <EntitySet Name="TBLCONTACT" EntityType="DBLMSModel.TBLCONTACT" />
+    <EntitySet Name="TBLCASH" EntityType="DBLMSModel.TBLCASH" />
   </EntityContainer>
   <Association Name="FK_TBLMOVEMENT_TBLSTAFF">
     <End Type="DBLMSModel.TBLSTAFF" Role="TBLSTAFF" Multiplicity="0..1" />
@@ -221,4 +224,29 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="TBLABOUT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ABOUT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TBLCONTACT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TOPIC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MESSAGE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TBLCASH">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="MONTH" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="AMOUNT" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
 </Schema>

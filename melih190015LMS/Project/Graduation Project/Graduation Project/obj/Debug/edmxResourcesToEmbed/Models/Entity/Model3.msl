@@ -94,5 +94,33 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="TBLABOUT">
+      <EntityTypeMapping TypeName="DBLMSModel.TBLABOUT">
+        <MappingFragment StoreEntitySet="TBLABOUT">
+          <ScalarProperty Name="ABOUT" ColumnName="ABOUT" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLCONTACT">
+      <EntityTypeMapping TypeName="DBLMSModel.TBLCONTACT">
+        <MappingFragment StoreEntitySet="TBLCONTACT">
+          <ScalarProperty Name="MESSAGE" ColumnName="MESSAGE" />
+          <ScalarProperty Name="TOPIC" ColumnName="TOPIC" />
+          <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLCASH">
+      <EntityTypeMapping TypeName="DBLMSModel.TBLCASH">
+        <MappingFragment StoreEntitySet="TBLCASH">
+          <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+          <ScalarProperty Name="MONTH" ColumnName="MONTH" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -138,6 +138,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Classes\Class1.cs" />
     <Compile Include="Models\Entity\Model3.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -156,13 +157,22 @@
     <Compile Include="Models\Entity\sysdiagrams.cs">
       <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entity\TBLABOUT.cs">
+      <DependentUpon>Model3.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Entity\TBLAUTHOR.cs">
       <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\TBLBOOK.cs">
       <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entity\TBLCASH.cs">
+      <DependentUpon>Model3.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Entity\TBLCATEGORY.cs">
+      <DependentUpon>Model3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\TBLCONTACT.cs">
       <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\TBLMOVEMENT.cs">
@@ -222,12 +232,12 @@
     <Content Include="web\gulpfile.js" />
     <Content Include="web\img\avataaars.svg" />
     <Content Include="web\img\lib.jpg" />
-    <Content Include="web\img\portfolio\cabin.png" />
-    <Content Include="web\img\portfolio\cake.png" />
-    <Content Include="web\img\portfolio\circus.png" />
-    <Content Include="web\img\portfolio\game.png" />
-    <Content Include="web\img\portfolio\safe.png" />
-    <Content Include="web\img\portfolio\submarine.png" />
+    <Content Include="web\img\portfolio\arabasevdası.jpeg" />
+    <Content Include="web\img\portfolio\beyazzambak.jpeg" />
+    <Content Include="web\img\portfolio\calikusu.jpg" />
+    <Content Include="web\img\portfolio\delikurt.jpg" />
+    <Content Include="web\img\portfolio\insan.jpg" />
+    <Content Include="web\img\portfolio\sucveceza.jpg" />
     <Content Include="web\index.html" />
     <Content Include="web\js\contact_me.js" />
     <Content Include="web\js\contact_me.min.js" />

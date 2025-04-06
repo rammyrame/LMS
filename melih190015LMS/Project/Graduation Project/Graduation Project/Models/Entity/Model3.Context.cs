@@ -33,5 +33,8 @@ namespace Graduation_Project.Models.Entity
         public virtual DbSet<TBLPENALTY> TBLPENALTY { get; set; }
         public virtual DbSet<TBLSTAFF> TBLSTAFF { get; set; }
         public virtual DbSet<TBLUSERS> TBLUSERS { get; set; }
+        public virtual DbSet<TBLABOUT> TBLABOUT { get; set; }
+        public virtual DbSet<TBLCONTACT> TBLCONTACT { get; set; }
+        public virtual DbSet<TBLCASH> TBLCASH { get; set; }
     }
 }

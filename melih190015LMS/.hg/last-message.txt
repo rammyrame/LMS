@@ -1,1 +1,1 @@
-Book return process completed. The process of seeing returned books in the Operations tab is completed. The creation of the Showcase Panel has started. A sample template for the Showcase Panel has been applied to the project.
+The arrangements of the showcase panel have been completed. Tables have been created for the About and Contact forms and the data has been integrated into the project.

@@ -20,6 +20,9 @@
         <AssociationConnector Association="DBLMSModel.FK_TBLPENALTY_TBLMOVEMENT" ManuallyRouted="false" />
         <AssociationConnector Association="DBLMSModel.FK_TBLPENALTY_TBLUSERS" ManuallyRouted="false" />
         <AssociationConnector Association="DBLMSModel.FK_TBLMOVEMENT_TBLSTAFF" />
+        <EntityTypeShape EntityType="DBLMSModel.TBLABOUT" Width="1.5" PointX="5.875" PointY="7.5" />
+        <EntityTypeShape EntityType="DBLMSModel.TBLCONTACT" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DBLMSModel.TBLCASH" Width="1.5" PointX="8.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
